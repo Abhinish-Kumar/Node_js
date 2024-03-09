@@ -14,7 +14,7 @@ In this callback function we pass two parameters first is request and second is 
 Inside the callback function, you can define how the server should respond to incoming requests by setting headers, writing the response body, etc.
 
 
-```nodejs
+```node
 
 const http = require('http');
 
