@@ -32,10 +32,10 @@ server.listen(3000, () => {
 res.end:- is very important to make a successfull communication with res and req cycle.
 Every time you write the localhost:3000 into your browser your brower by default make a GET request , and this req is received by our server that we created and response is send to the browser by the server. 
 
+You can access information about the incoming request such as URL, HTTP method, headers, etc., from the request object and send the response using the response object.
+Means we can get the proper detail of the request which is in the form of object like req URL, its method and header and can send the data to the frentend by using the same format.
 
-
-
-
+2. 
 
 
 
