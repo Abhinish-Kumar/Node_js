@@ -6,6 +6,10 @@ Read from
 1. https://www.w3schools.com/nodejs/nodejs_http.asp
 2. https://nodejs.org/api/http.html
 3. https://www.javascripttutorial.net/nodejs-tutorial/nodejs-http-module/
+4. https://www.w3resource.com/node.js/nodejs-http-server.php
+5. https://codeforgeek.com/node-js-https/
+
+
 In Node.js, the http module is a core module that provides functionality to create HTTP servers and clients. It allows you to interact with the HTTP protocol, making it possible to handle incoming HTTP requests and outgoing HTTP responses.
 
 HTTP is a object like entity having different methods for different use.
