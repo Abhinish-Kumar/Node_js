@@ -6,3 +6,11 @@ Node js is a javascript run time environment to run the javascript outside the b
 ## res.params vs res.query?
 ## Body-parser and its functionality and features?
 ## Explain the default security mechanism in node js?
+
+
+# What you should know.
+
+1. Javascript
+2. Node.js(foundational part)
+3. Node installed
+4. VS code (free for any language)
