@@ -1,3 +1,57 @@
+## Introduction
+Note :- first cover the basic of Node js.
+
+We may need to do HTTP request to upload and download file from http servers.
+Node js has two Modules to handle http requests
+
+1. HTTP :- without security
+2. HTTPS :- with security certificate
+
+We make requests with the end points different end point or nested end point deals with different source of data.
+
+Example:-
+
+```node
+const https = require("https");
+const fs = require("fs");
+
+const options = {
+hostname:"en.wikipedia.org", //where we are going to make request or root of our end point
+port:443, //any request uses port 443 which is running on HTTPS
+path:"/wiki/Cher",
+method:"GET"
+}
+const request = https.request(options,res =>{
+let responseBOdy = ""; //create empty container
+res.setEncoding("UTF-8");
+//call this function when we get some data
+res.on("data",chunk=>{
+console.log("---chunk),chunk.length);
+responseBody +=chunk;
+}
+})
+
+request.end("end",()=>{
+fs.writeFile("cher.html",responseBody,err=>{
+if(err){
+throw err;
+}
+console.log("file downloaded");
+})
+});
+```
+
+NOTE :- drag your html folder in vs code in integreted terminal to go to that point at the integreted terminal of vs code.
+
+The above code will get the data from wikipidia website and convert it into html form and download it for you.
+Here we make a https request to get the data from wikipedia
+
+
+
+
+
+
+
 # HTTP
 http is a node js default module 
 
