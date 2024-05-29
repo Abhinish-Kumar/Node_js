@@ -84,7 +84,7 @@ my-app/
 
 ## Exercise
 
-```nodejs
+```node
 
 const express = require('express');
 const app = express();
@@ -127,6 +127,108 @@ app.listen(PORT, () => {
 </html>
 
 ```
+
+## Exercise
+
+```javascript
+
+my-app/
+│
+├── views/
+│   ├── index.ejs
+│
+├── app.js
+├── package.json
+└── package-lock.json
+
+
+```
+
+```javascript
+
+mkdir my-app
+cd my-app
+
+```
+
+```javascript
+
+npm init -y
+
+npm install express ejs
+
+```
+
+express file
+
+```node
+
+const express = require('express');
+const app = express();
+
+// Set EJS as the templating engine
+app.set('view engine', 'ejs');
+
+// Define a route
+app.get('/', (req, res) => {
+  const items = ['Item 1', 'Item 2', 'Item 3', 'Item 4'];
+  res.render('index', { items: items });
+});
+
+// Start the server
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
+});
+
+
+```
+
+
+
+HTML
+
+
+```html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Items List</title>
+</head>
+<body>
+  <h1>Items List</h1>
+  <ul>
+    <% items.forEach(item => { %>
+      <li><%= item %></li>
+    <% }); %>
+  </ul>
+</body>
+</html>
+
+```
+Output
+
+```javascript
+
+Items List
+- Item 1
+- Item 2
+- Item 3
+- Item 4
+
+```
+
+
+
+
+
+
+
+
+
+
 
 
 
