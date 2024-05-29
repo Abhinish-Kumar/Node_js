@@ -130,6 +130,29 @@ app.listen(PORT, () => {
 
 
 
+# Template Engine
+
+A template engine is a software component used in web development to generate dynamic web pages. It enables developers to combine HTML templates with dynamic data to produce the final HTML content that is sent to the user's browser. Template engines are essential for separating the presentation layer (HTML) from the logic layer (business logic), making code easier to manage and maintain.
+
+### Types of Template Engines
+
+#### Server-Side Template Engines
+
+1. EJS (Embedded JavaScript)
+2. Pug (formerly Jade)
+3. Handlebars
+4. Thymeleaf
+
+#### Client-Side Template Engines
+
+1. Mustache
+2. Handlebars
+3. Angular
+4. React JSX
+
+
+
+
 
 
 
