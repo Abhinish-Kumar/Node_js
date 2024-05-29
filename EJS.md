@@ -221,9 +221,95 @@ Items List
 ```
 
 
+## Exercise
+
+```javascript
+my-app/
+│
+├── views/
+│   ├── partials/
+│   │   ├── header.ejs
+│   ├── index.ejs
+│
+├── app.js
+├── package.json
+└── package-lock.json
+
+```
 
 
 
+
+```html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title><%= title %></title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <header>
+    <h1>Welcome to My App</h1>
+    <nav>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/about">About</a></li>
+      </ul>
+    </nav>
+  </header>
+
+```
+
+
+
+
+```html
+
+<%- include('partials/header') %>
+
+<h2>Items List</h2>
+<ul>
+  <% items.forEach(item => { %>
+    <li><%= item %></li>
+  <% }); %>
+</ul>
+
+<footer>
+  <p>&copy; 2024 My App</p>
+</footer>
+
+</body>
+</html>
+
+
+```
+
+```javascript
+const express = require('express');
+const path = require('path');
+const app = express();
+
+// Set EJS as the templating engine
+app.set('view engine', 'ejs');
+
+// Serve static files
+app.use(express.static(path.join(__dirname, 'public')));
+
+// Define a route
+app.get('/', (req, res) => {
+  const items = ['Item 1', 'Item 2', 'Item 3', 'Item 4'];
+  res.render('index', { title: 'Home', items: items });
+});
+
+// Start the server
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
+});
+
+```
 
 
 
