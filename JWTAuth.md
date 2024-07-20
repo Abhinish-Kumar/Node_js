@@ -128,9 +128,9 @@ app.listen(8000, () => {
 
 
 
-<img src="images/login1" />
+<img src="images/login1.png" />
 
-<img src="images/login2" />
+<img src="images/login2.png" />
 
 
 
