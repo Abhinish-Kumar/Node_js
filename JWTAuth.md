@@ -48,4 +48,100 @@ This is divided into 3 parts
 
 
 
+# Verifu user with token generated
+
+
+```javascript
+const express = require("express");
+const app = express();
+
+const jwt = require("jsonwebtoken");
+
+app.get("/", (req, res) => {
+  res.send("we are ready ......");
+});
+
+app.post("/login", (req, res) => {
+  const user = {
+    id: 2,
+    userName: "Abhinish Kumar",
+    email: "abhinishkumaran506@gmail.com",
+  };
+
+  jwt.sign({ user }, "secretKey", { expiresIn: "300s" }, (err, token) => {
+    console.log(token);
+    res.send(token);
+  });
+});
+
+app.post("/profile", verified, (req, res) => {
+  jwt.verify(req.token, "secretKey", (err, authdata) => {
+    if (err) {
+      res.send({
+        result: "invalid token",
+      });
+    } else {
+      res.json({
+        message: "progile accepted",
+        authdata,
+      });
+    }
+  });
+});
+
+function verified(req, res, next) {
+  const bearerHeader = req.headers["authentication"];
+  //token send by the user
+  //bearer tokenbearer eyJhbGciOiJI
+  // UzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2
+  // VyIjp7ImlkIjoxLCJ1c2VyTmFtZSI6I
+  // kFiaGluaXNoIEt1bWFyIiwiZW1haWwi
+  // OiJhYmhpbmlzaGt1bWFyYW41MDZAZ21
+  // haWwuY29tIn0sImlhdCI6MTcyMTUwOT
+  // M5OSwiZXhwIjoxNzIxNTA5Njk5fQ.qg
+  // X_VjvBpgQVby4KLj9UcVViCtUM9U8z2
+  // I7-QepQ3t8
+
+  console.log("bearer token" + bearerHeader);
+  if (typeof bearerHeader !== "undefined") {
+    const bearer = bearerHeader.split(" ");
+    const token = bearer[1];
+    //add token with request
+    req.token = token;
+    next();
+  } else {
+    res.send({
+      //if user does not pass any thing
+      //or have no token
+
+      result: "Token is not valid",
+    });
+  }
+  next();
+}
+
+app.listen(8000, () => {
+  console.log("Your sarver is running now at the port 8000");
+});
+
+```
+
+
+
+<img src="images/login1" />
+
+<img src="images/login2" />
+
+
+
+
+
+
+
+
+
+
+
+
+
 
