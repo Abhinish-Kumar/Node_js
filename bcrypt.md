@@ -85,7 +85,40 @@ Internal working
 3. Compare them , to get a boolean value.
 
 
+## Advance 
 
+list of all the methods used by bcrypt
+
+```javascript
+{
+  genSaltSync: [Function: genSaltSync],
+  genSalt: [Function: genSalt],
+  hashSync: [Function: hashSync],
+  hash: [Function: hash],
+  compareSync: [Function: compareSync],
+  compare: [Function: compare],
+  getRounds: [Function: getRounds]
+}
+```
+
+# Alternative is bcrypt.js
+
+```javascript
+{
+  setRandomFallback: [Function (anonymous)],    
+  genSaltSync: [Function (anonymous)],
+  genSalt: [Function (anonymous)],
+  hashSync: [Function (anonymous)],
+  hash: [Function (anonymous)],
+  compareSync: [Function (anonymous)],
+  compare: [Function (anonymous)],
+  getRounds: [Function (anonymous)],
+  getSalt: [Function (anonymous)],
+  encodeBase64: [Function: base64_encode],      
+  decodeBase64: [Function: base64_decode]       
+}
+
+```
 
 
 
