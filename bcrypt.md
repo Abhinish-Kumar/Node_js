@@ -47,8 +47,42 @@ yd4UGEeL8SdG`)
 
 
 
+#### 2. bcrypt.compare() 
+this method also take 3 parameters
+(userInputPassword,storedHashedPassword,callback)
+
+ 1. userInputPassword :- eg "Abhinish123"
+ 2. storedHashedPassword : - the generated hash with the password.
+ 3. callback :- it takes 2 arguments , (err,boolean).
 
 
+note:- also learn about node js crypto
+
+```javascript
+//without 3rd parameter
+const bcrypt = require("bcrypt");
+
+async function hashPassword(name) {
+  let hasedP = await bcrypt.hash(name, 10);
+  console.log(hasedP);
+}
+
+let a = `$2b$10$0jsSrswwWlZnWUaMH9LPb.wCEYff1PjOg5YQvbClVyd4UGEeL8SdG`;
+
+async function compare(name) {
+  let bool = await bcrypt.compare(name, a);
+  console.log(bool);
+}
+
+compare("Abhinish"); //true
+
+```
+
+Internal working
+
+1. salt extraction from the provided hased password
+2. rehash the given "name" with that salt to get the same hashed password
+3. Compare them , to get a boolean value.
 
 
 
