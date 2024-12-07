@@ -185,6 +185,69 @@ We store usernam and password in our system.
 
 
 
+# Chapter 3
+
+We know that how to store the data or user credentials like usernme and password , but we wat to make it private. SO we will use **BCRYPT**.
+
+Its important if any hacker attack to the database then he can get the username and password. and can login as a valid user. 
+
+```javascript
+>> npm install bcrypt
+```
+
+## Password Hashing
+
+Password => Hash Function => Hashed Password
+
+## Password Hash Salting
+
+UserPassword => UserPassword+salt => Hashing Algorithm => HassedPassword.salt
+
+All this work is done by the hashing function.
+We store this HassedPassword.salt into our database.
+
+Note :- mongoose provide us a middleware (pre) that hash the password then store the password in the database.
+
+
+```javascript
+async function  (){
+
+const salt = await bcrypt.genSalt(10);
+
+//10 is round of hashing
+
+const hashedPassword = await bcrypt.hash(person.password,salt);
+
+person.password = hashedPassword;
+
+} 
+```
+
+We doesnot store salt because it is already store in the password. We just separate both and then we do things.
+
+Compare password
+
+```javascript
+
+async function (){
+
+let isMatch = await bcrypt.compare(simplepassword,cryptedpassword);
+return isMatch;
+
+}
+
+```
+
+How compare function works . 
+it first separate salt and bcrypt the given password then compare both.
+
+It just compare two hashed Password.
+
+
+
+
+
+
 
 
 
