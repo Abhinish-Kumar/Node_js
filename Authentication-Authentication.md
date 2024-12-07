@@ -5,6 +5,10 @@
 Middleware in Node.js is a function that intercepts and processes incoming requests and outgoing responses during the request-response cycle in an application.
 Middleware is a phase where number of functions executes.
 
+or 
+
+Middleware is like a series of tasks that happen behind the scenes in a web appliaction, It is a way to add extra functionality to your application's request-response cycle. Such as  logging ,authentication checks or modifying request data. before it reaches its final destination. 
+
 ### What Middleware Can Do:
 1. **Modify Requests or Responses**: Middleware can tweak request or response objects before passing them further.
 2. **Execute Code**: It can execute any required logic at specific points in the cycle.
@@ -44,8 +48,10 @@ Think of middleware as a manager or a gatekeeper. It evaluates every request com
 
 Note :- authorization  and authentication are done at the middleware phase.
 
+4. Why we use next() function in middleware function :- it tells express that the current middleware is completely processed. then it will give access to the server.
+5. app.use() :- tells express js to run this first becasue it is  a middleware. 
 
-
+examples of middleware :- body-parsing , authentication,router. 
 
 ## real world example
 
@@ -150,6 +156,48 @@ Note:- you can use this middleware to create public or protected route ,eg :- po
 
 
 If you want that no one can access any of your route then , you can apply middleware to all the routes, and you provide the login page to login first before use of the appliaction.
+
+
+# Chapter 2
+
+Imagine you are the manager of the "hotel" appliaction, and you want to ensure that only authorized staff members can access certain fetures. This is where authentication comes in. 
+
+## 1. Verifying Identity (Authentication) :
+
+- Scenario :- write password and name then you are authorized.
+
+## Access Control (Authorization) :
+
+- controls that a person has over resources.
+
+
+## Which we implement first Authentication or authorization
+
+1. First we authorize the person
+2. Then we give authority of resources.
+
+
+
+when we make request to server , middleware extract the username and password and check for a valid user , if its a valid user then it will give , access to the server otherwise , it will show error message.
+
+We store usernam and password in our system.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
